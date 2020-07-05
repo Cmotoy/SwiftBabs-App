@@ -1,6 +1,6 @@
 using System;
 
-namespace SwiftBabsApp.Models
+namespace SwiftBabsApp.Web.Models
 {
     public class ErrorViewModel
     {

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SwiftBabsApp.Models;
+using SwiftBabsApp.Web.Models;
 
-namespace SwiftBabsApp.Controllers
+namespace SwiftBabsApp.Web.Controllers
 {
     public class HomeController : Controller
     {

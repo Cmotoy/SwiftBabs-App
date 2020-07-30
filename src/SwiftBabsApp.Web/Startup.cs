@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SwiftBabsApp.Data.DatabaseContext.ApplicationDbContext;
 using SwiftBabsApp.Data.DatabaseContext.AuthenticationDBContext;
 
 namespace SwiftBabsApp.Web
@@ -25,7 +26,17 @@ namespace SwiftBabsApp.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<AuthenticationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AuthenticationConnection"))); 
+            services.AddDbContextPool<AuthenticationDbContext>
+            (options => options.UseSqlServer(Configuration.GetConnectionString
+            ("AuthenticationConnection"),
+            sqlServerOptions => {sqlServerOptions.MigrationsAssembly("SwiftBabsApp.Data");
+            })); 
+            
+            services.AddDbContextPool<ApplicationDbContext>(options => 
+            options.UseSqlServer (Configuration.GetConnectionString("ApplicationConnection"), 
+            sqlServerOptions => {
+            sqlServerOptions.MigrationsAssembly("SwiftBabsApp.Data");
+            }));
             services.AddControllersWithViews();
         }
 

@@ -2,6 +2,7 @@ using SwiftBabsApp.Data.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace SwiftBabsApp.Data.DatabaseContext.AuthenticationDBContext
 {
 

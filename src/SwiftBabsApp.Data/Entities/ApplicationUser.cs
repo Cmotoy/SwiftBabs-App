@@ -4,6 +4,5 @@ namespace SwiftBabsApp.Data.Entities
 {
     public class ApplicationUser:IdentityUser
     {
-
     }
 }

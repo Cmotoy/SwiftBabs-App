@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -111,9 +108,9 @@ namespace SwiftBabsApp.Web
                {
                    await roleManager.CreateAsync(new IdentityRole {Name = role});
                }
-            }   
+            }       
             var userManager = svp.GetRequiredService<UserManager<ApplicationUser>>();
-            var user = await userManager.FindByEmailAsync(userEmail);
+             var user = await userManager.FindByEmailAsync(userEmail);
             if (user is null)
             {
                 user = new ApplicationUser
@@ -131,5 +128,11 @@ namespace SwiftBabsApp.Web
             
             }
         }
+
+
+
+
+
+        
     }
   
